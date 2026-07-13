@@ -116,6 +116,18 @@ npm test
 
 For full app testing, we use Detox. Make sure your simulator is running before starting Detox tests.
 
+## Assumptions
+
+*   **API Structure:** Assumes a standard RESTful API structure where endpoints handle standard JSON payloads for syncing.
+*   **Authentication:** Assumes the user is already authenticated and an auth token is securely stored (authentication flow is mocked/bypassed for this exercise).
+*   **Media Handling:** Assumes the backend supports multipart/form-data for photo uploads.
+
+## Known Limitations
+
+*   **Conflict Resolution:** Currently utilizes a "last-write-wins" strategy. In a production environment with multiple inspectors on the same vessel, a more robust conflict resolution strategy (like versioning or operational transformation) would be required.
+*   **Photo Deletion:** The current flow supports attaching photos but does not fully support deleting local photos from the device's file system once attached.
+*   **Mocked Endpoints:** The API is currently mocked. A real backend would need to handle the schema and validation.
+
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
